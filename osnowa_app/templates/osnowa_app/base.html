@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+<!--Profil do animowej krytyki-->
+<!DOCTYPE html>
+<html>
+	<head>
+	        <title>Inżynierka</title>
+		<!--Polskie znaki--> 
+		<meta charset="UTF-8"/>
+		<!--Bootstrap do łatwiejszego używania css--> 
+	        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<!--cooooś--> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<!--Załączenie linku do pliku .css-->
+		<link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css" rel="stylesheet"/>
+		<link rel="stylesheet" href="{% static 'css/osnowa_app.css' %}">
+	        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>  
+	</head>
+
+	<body>
+    		<div>   <!--To jest blok umożliwiający wstawianie w to miejsce HTMLa-->
+			{% block content %}
+			<!--Tu wstawi się HTML-->
+            		{% endblock %}
+    		</div>
+	</body>
+</html>

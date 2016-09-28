@@ -100,9 +100,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# ścieżka w adresie po której będziemy się odwoływać do plików statycznych (standardowo /static/)
 STATIC_URL = '/static/'
+#ścieżka do katalogu w którym będą przechowywane wszystkie pliki statyczne. Nie powinniśmy umieszczać tutaj żadnych plików.
 STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
 
+#lista katalogów w naszymi plikami statycznymi
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
