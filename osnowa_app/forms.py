@@ -5,4 +5,4 @@ class PointForm(forms.ModelForm):
 
     class Meta:
         model = Point
-        fields = ('nazwa', 'klasa',)
+        fields = ('arkusz_mapy', 'nazwa', 'klasa','numer', 'wojewodztwo', 'powiat', 'gmina', 'miejscowosc', 'stabilizacja')

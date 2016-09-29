@@ -3,15 +3,15 @@ from django.utils import timezone
 
 class Point(models.Model):
     autor = models.ForeignKey('auth.User')
-    arkusz_mapy = models.TextField()
-    nazwa = models.TextField()
-    klasa = models.TextField()
+    arkusz_mapy = models.CharField(max_length=200)
+    nazwa = models.CharField(max_length=200)
+    klasa = models.CharField(max_length=200)
     numer = models.CharField(max_length=200)
-    wojewodztwo = models.TextField()
-    powiat = models.TextField()
-    gmina = models.TextField()
-    miejscowosc = models.TextField()
-    stabilizacja = models.TextField()
+    wojewodztwo = models.CharField(max_length=200)
+    powiat = models.CharField(max_length=200)
+    gmina = models.CharField(max_length=200)
+    miejscowosc = models.CharField(max_length=200)
+    stabilizacja = models.CharField(max_length=200)
     created_date = models.DateTimeField(
             default=timezone.now)
     find_date = models.DateTimeField(

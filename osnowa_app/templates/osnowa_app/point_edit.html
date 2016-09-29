@@ -2,8 +2,10 @@
 
 {% block content %}
     <h1>New point</h1>
-    <form method="POINT" class="point-form">{% csrf_token %}
+    <form method="POST" class="point-form">{% csrf_token %}
+	<!--wyświetlenie formularza-->
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+	<!--przycisk "zapisz"-->
+        <button type="submit" class="save btn btn-default">Zapisz</button>
     </form>
 {% endblock %}

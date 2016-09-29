@@ -4,7 +4,7 @@
 <header>
 			<nav>
 				<div class="logo">
-					<a href title="Tu wpisać nazwę strony"> <img src="{logo.png }" alt="Logo"  height="30"></a>
+					<a href title="Tu wpisać nazwę strony"> <img src="static/images/logo.png" alt="Logo"  height="30"></a>
 				</div>
 				
 				<div class="menu">
@@ -24,7 +24,7 @@
 				<div class="wyszukiwanie"> 
 				
 					<div class="miejsce_lupka">
-						<img src="{{ lupa.png }}" alt="Szukaj punktu" height="16px" class="obrazek_lupki">      
+						<img src="static/images/lupa.png" alt="Szukaj punktu" height="16px" class="obrazek_lupki">      
 						</div>
 
 					<div class="szukaj">
@@ -33,18 +33,19 @@
 				</div>
 								
 				<div class="user-nav">
-					<a href="{% url 'point_new' %}" title="Dodaj punkt" class="add_point"><img src="notification.png" alt="Dodaj punkt" height="20"> </a>
+					<!--Przycisk Dodaj punkt przez formularz-->
+					<a href="{% url 'point_new' %}" title="Dodaj punkt" class="add_point"><img src="static/images/notification.png" alt="Dodaj punkt" height="20"> </a>
 					<div class="profile">
 						<div class="avatar">
 							<a href title="Profil" class="avatar-mini1"> 
 								<div class="avatar-mini2">
-									<img src="photo.jpg" alt="Profil" height="30">
+									<img src="static/images/photo.jpg" alt="Profil" height="30">
 								</div>	
 							</a>	
 						</div>
 					</div>
 					<div class="dropdown">
-						<button onclick="myFunction()" class="dropbtn"><img src="dropdown.png" alt="Dropdown" class="img-dropdown"></button>
+						<button onclick="myFunction()" class="dropbtn"><img src="static/images/dropdown.png" alt="Dropdown" class="img-dropdown"></button>
 						<div class="myDropdown dropdown-content">
 							<a href="#home">Mój profil</a>
 							<a href="#about">Ustawienia</a>
@@ -75,6 +76,7 @@
 			</nav>
 		</header>
 
+<div class="map">
 <!--************************************************************Szerokość i wysokość okna z mapą*******************************************************************************************************-->
 		<div id="mapid" style="width: 1900px; height: 900px"></div>
 		
@@ -126,7 +128,7 @@
 			function onMapClick(e) {
 				popup
 					.setLatLng(e.latlng)
-					.setContent("You clicked the map at " + e.latlng.toString())
+					.setContent("Tutaj znajdują się współrzędne: " + e.latlng.toString())
 					.openOn(mymap);
 			}
 
@@ -165,6 +167,6 @@
 			L.marker([50.06591, 19.91651], {icon: yellowIcon}).bindPopup("Ceramika").addTo(map);
 			L.marker([50.06664, 19.92069], {icon: redIcon}).bindPopup("Energetyka").addTo(map);
 		</script>
-
+</div>
 {% endblock content %}
 

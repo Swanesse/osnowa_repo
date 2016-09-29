@@ -1,3 +1,13 @@
+.map {
+	width: 70%;
+	height: 500px;
+	margin: 50px 0 0 0;
+}
+
+/*.leaflet-top .leaflet-control {
+    margin-top: 60px;
+}*/
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -60,7 +70,7 @@ li {
 }
 .miejsce_lupka {
 	float: left;
-	width: 20px;
+	width: 30px;
 	height: 30px;
 	padding-left: 10px;
 	background-color: #ffffff;

@@ -105,7 +105,7 @@ STATIC_URL = '/static/'
 #ścieżka do katalogu w którym będą przechowywane wszystkie pliki statyczne. Nie powinniśmy umieszczać tutaj żadnych plików.
 STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
 
-#lista katalogów w naszymi plikami statycznymi
+#lista katalogów w naszymi plikami statycznymi nie przynależącymi do żadnej konkretnej aplikacji (ogólnostronowymi)
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
