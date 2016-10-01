@@ -3,6 +3,7 @@
 {#Tworzenie nowego punktu#}
 
 {% block content %}
+    <div class ="main-content">
     <h1>New point</h1>
     <form method="POST" class="point-form">{% csrf_token %}
 	<!--wyświetlenie formularza-->
@@ -10,4 +11,5 @@
 	<!--przycisk "zapisz"-->
         <button type="submit" class="save btn btn-default">Zapisz</button>
     </form>
+    </div>
 {% endblock %}

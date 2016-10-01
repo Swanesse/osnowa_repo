@@ -21,18 +21,21 @@ def point_detail(request, pk):
 
 
 def point_new(request):
-    if request.method == "POST":
-        form = PointForm(request.POST)
-        # czy formularz jest wypełniony poprawnie
-        if form.is_valid():
-            point = form.save(commit=False)
-            point.autor = request.user
-            point.created_date = timezone.now()
-            point.save()
-            return redirect('point_detail', pk=point.pk)
+    if not request.user.is_authenticated():
+        return views.login(request, template_name='osnowa_app/login.html')
     else:
-        form = PointForm()
-    return render(request, 'osnowa_app/point_edit.html', {'form': form})
+        if request.method == "POST":
+            form = PointForm(request.POST)
+            # czy formularz jest wypełniony poprawnie
+            if form.is_valid():
+                point = form.save(commit=False)
+                point.autor = request.user
+                point.created_date = timezone.now()
+                point.save()
+                return redirect('point_detail', pk=point.pk)
+        else:
+            form = PointForm()
+        return render(request, 'osnowa_app/point_edit.html', {'form': form})
 
 
 def point_edit(request, pk):
@@ -59,6 +62,16 @@ def login_user(request):
         return views.login(request, template_name='osnowa_app/login.html')
     else:
         return HttpResponseRedirect("/user/")
+
+def user(request):
+    """
+    django.contrib.auth.views.login login view
+    """
+    # jeśli użytkownik nie jest zalogowany (uwierzytelniony)
+    if not request.user.is_authenticated():
+        return views.login(request, template_name='osnowa_app/login.html')
+    else:
+        return render(request, 'osnowa_app/user.html')
 
 
 def logout_then_login(request):

@@ -1,0 +1,80 @@
+<header>
+			<nav>
+				<div class="logo">
+					<a href="{% url 'point_list' %}" title="Tu wpisać nazwę strony"> <img src="/static/images/logo.png" alt="Logo"  height="30"></a>
+				</div>
+
+				<div class="menu">
+					<ul>
+						<li>
+							<a href="{% url 'point_list' %}">Strona główna</a>
+			    			</li>
+						<li>
+							<a href>Informacje</a>
+			    			</li>
+						<li>
+							<a href>Kontakt</a>
+			    			</li>
+                			</ul>
+				</div>
+
+				<div class="wyszukiwanie">
+
+					<div class="miejsce_lupka">
+						<img src="/static/images/lupa.png" alt="Szukaj punktu" height="16px" class="obrazek_lupki">
+						</div>
+
+					<div class="szukaj">
+								<input type="search" class="typeahead q" placeholder="Szukaj punktu..." name="q">
+					</div>
+				</div>
+
+				<!--Przycisk zaloguj się-->
+				<a href="{% url 'login_user' %}" title="Zaloguj się" class="add_point"><button class="btn">Zaloguj się</button> </a>
+
+				<div class="user-nav">
+					<!--Przycisk Dodaj punkt przez formularz-->
+{#                    {% if user.is_authenticated %}#}
+					    <a href="{% url 'point_new' %}" title="Dodaj punkt" class="add_point"><img src="/static/images/notification.png" alt="Dodaj punkt" height="20"> </a>
+{#                    {% endif %}#}
+
+                    <div class="profile">
+						<div class="avatar">
+							<a href="{% url 'user' %}" title="Profil" class="avatar-mini1">
+								<div class="avatar-mini2">
+									<img src="/static/images/photo.jpg" alt="Profil" height="30">
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button onclick="myFunction()" class="dropbtn"><img src="/static/images/dropdown.png" alt="Dropdown" class="img-dropdown"></button>
+						<div class="myDropdown dropdown-content">
+							<a href="{% url 'user' %}">Mój profil</a>
+							<a href="#about">Ustawienia</a>
+						  	<a href="#contact">Wyloguj się</a>
+						</div>
+					</div>
+
+						<script>
+							/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+							function myFunction() {
+							    document.getElementsByClassName("myDropdown")[0].classList.toggle("show");}
+
+							// Close the dropdown if the user clicks outside of it
+							window.onclick = function(event)
+							{ if (!event.currentTarget.matches('.dropbtn'))
+							  	{ var dropdowns = document.getElementsByClassName("dropdown-content");
+								  var i;
+							    	  for (i = 0; i < dropdowns.length; i++)
+									{ var openDropdown = dropdowns[i];
+							      		  if (openDropdown.classList.contains('show'))
+										{ openDropdown.classList.remove('show');
+										}
+							    		}
+							  	}
+							}
+						</script>
+				</div>
+			</nav>
+		</header>

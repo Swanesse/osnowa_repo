@@ -20,6 +20,7 @@
 		<!--Załączenie linku do pliku .css z OpenStreetMap-->
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 		<link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static 'css/info.css' %}" type="text/css"/>
 		<link rel="stylesheet" href="{% static 'css/osnowa_app.css' %}">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,10 +32,13 @@
 	</head>
 
 	<body>
+
+            {% include "osnowa_app/head.html" %}
+
     		<div>   <!--To jest blok umożliwiający wstawianie w to miejsce HTMLa-->
-			{% block content %}
-			<!--Tu wstawi się HTML-->
-            		{% endblock %}
+			    {% block content %}
+			    <!--Tu wstawi się HTML-->
+                {% endblock %}
     		</div>
 	</body>
 </html>

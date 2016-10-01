@@ -1,6 +1,7 @@
 {% extends 'osnowa_app/base.html' %}
 
 {% block content %}
+    <div class ="main-content">
 	<h1>Logowanie</h1>
 	<form method="POST" action="/login/user/">{% csrf_token %}
 		<div class="content">
@@ -15,4 +16,5 @@
 			<input type="hidden" name="next" value="{{ next }}" />
 		</div>
 	</form>
+    </div>
 {% endblock %}

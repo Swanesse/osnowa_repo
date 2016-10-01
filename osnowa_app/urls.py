@@ -14,6 +14,10 @@ urlpatterns = [
 	url(r'^login/user/$', views.login_user, name='login_user'),
 
 
+	url(r'^user/$', views.user, name='user'),
+
+
+
 
 
 
