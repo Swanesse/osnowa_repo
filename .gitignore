@@ -3,3 +3,4 @@ __pycache__
 osnowa_venv
 db.sqlite3
 .DS_Store
+.idea

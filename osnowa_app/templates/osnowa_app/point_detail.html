@@ -1,5 +1,7 @@
 {% extends 'osnowa_app/base.html' %}
 
+{#Opis punktu - jego charakterystyka i własności#}
+
 {% block content %}
     <div>
         {% if point.find_date %}
@@ -7,7 +9,10 @@
                 {{ point.find_date }}
             </div>
         {% endif %}
-	<a href="{% url 'point_edit' pk=point.pk %}"><img src="notification.png" alt="Edytuj punkt" height="20"></a>
+    {#Przycisk edycji punktu#}
+    {% if user.is_authenticated %}
+	    <a href="{% url 'point_edit' pk=point.pk %}"><img src="notification.png" alt="Edytuj punkt" height="20"></a>
+    {% endif %}
         <h1>{{ point.nazwa }}</h1>
         <p>{{ point.klasa|linebreaksbr }}</p>
     </div>

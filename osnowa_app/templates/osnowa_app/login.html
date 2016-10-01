@@ -1,0 +1,18 @@
+{% extends 'osnowa_app/base.html' %}
+
+{% block content %}
+	<h1>Logowanie</h1>
+	<form method="POST" action="/login/user/">{% csrf_token %}
+		<div class="content">
+			<table>
+				<!--{% comment %} {%trans "Username"%} {% endcomment %}- usunęłam trans ze wszystkiego trans tell Django: “This text should be translated into the end user’s language, if a translation for this text is available in that language.”-->
+				<tr><th colspan="2" class="first"><strong>"Standard login"</strong></th></tr>
+				<tr class="rowA small"><td class="first" style="width:30%;"><label for="id_username">"Username":</label></td><td>{{ form.username }}</td></tr>
+				<tr class="rowB small"><td class="first"><label for="id_password">"Password":</label></td><td>{{ form.password }}</td></tr>
+                                                                    {#Przycisk zatwierdzający formularz?#}
+                <tr class="rowA small"><td class="first" colspan="2"><input type="submit" value="Login"></td></tr>
+			</table>
+			<input type="hidden" name="next" value="{{ next }}" />
+		</div>
+	</form>
+{% endblock %}

@@ -32,6 +32,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django.contrib.admin',
+    #Tutaj w django/contrib/auth/models.py jest model reprezentujący użytkownika
+    #username - 30 znaków lub mniej (litery, cyfry, podkreślenia)
+    #first_name - Opcjonalne, 30 znaków lub mniej.
+    #last_name - Opcjonalne, 30 znaków lub mniej.
+    #email - Opcjonalne, adres email
+    #password - Wymagane, hasz i metadane hasła. Szczegóły dalej.
+    #is_staff - Boolean. Czy użytkownik ma dostęp do panelu admina
+    #is_active - Boolean. Czy użytkownik może się zalogować, czy konto jest aktywne.
+    #is_superuser - Boolean. Określa czy użytkownik jest adminem. Admin ma wszystkie uprawnienia bez ich jawnego przypisania.
+    #last_login - datetime, przechowuje datę ostatniego logowania
+    #date_joined -- przechowuje datę rejestracji     
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -109,3 +120,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+LOGIN_REDIRECT_URL = '/'

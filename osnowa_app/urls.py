@@ -10,5 +10,12 @@ urlpatterns = [
 	url(r'^point/new/$', views.point_new, name='point_new'),
 #edycja formularza
 	url(r'^point/(?P<pk>[0-9]+)/edit/$', views.point_edit, name='point_edit'),
+#link do formularza logowania
+	url(r'^login/user/$', views.login_user, name='login_user'),
+
+
+
+
+
 ]
 
