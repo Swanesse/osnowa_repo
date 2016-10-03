@@ -68,6 +68,11 @@ li {
 	float: left;
 	height:  inherit;
 }
+
+#margino {
+	margin-left: 60px;
+}
+
 .miejsce_lupka {
 	float: left;
 	width: 30px;

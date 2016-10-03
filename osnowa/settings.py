@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django.contrib.admin',
-    #Tutaj w django/contrib/auth/models.py jest model reprezentujący użytkownika
+    #Tutaj w django/contrib/auth/models.py jest model reprezentujący użytkownika - zarządzający użytkownikami
     #username - 30 znaków lub mniej (litery, cyfry, podkreślenia)
     #first_name - Opcjonalne, 30 znaków lub mniej.
     #last_name - Opcjonalne, 30 znaków lub mniej.

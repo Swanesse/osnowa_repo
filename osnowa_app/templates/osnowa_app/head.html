@@ -32,10 +32,13 @@
 				<!--Przycisk zaloguj się-->
 				<a href="{% url 'login_user' %}" title="Zaloguj się" class="add_point"><button class="btn">Zaloguj się</button> </a>
 
-				<div class="user-nav">
+                <!--Przycisk zarejestruj się-->
+				<a href="{% url 'register' %}" title="Zarejestruj się" class="add_point" id="margino"><button class="btn">Zarejestruj się</button> </a>
+
+				<div class="user-nav" >
 					<!--Przycisk Dodaj punkt przez formularz-->
 {#                    {% if user.is_authenticated %}#}
-					    <a href="{% url 'point_new' %}" title="Dodaj punkt" class="add_point"><img src="/static/images/notification.png" alt="Dodaj punkt" height="20"> </a>
+					    <a href="{% url 'point_new' %}" title="Dodaj punkt" class="add_point" ><img src="/static/images/notification.png" alt="Dodaj punkt" height="20"> </a>
 {#                    {% endif %}#}
 
                     <div class="profile">
@@ -52,7 +55,7 @@
 						<div class="myDropdown dropdown-content">
 							<a href="{% url 'user' %}">Mój profil</a>
 							<a href="#about">Ustawienia</a>
-						  	<a href="#contact">Wyloguj się</a>
+						  	<a href="{% url 'logout_user' %}">Wyloguj się</a>
 						</div>
 					</div>
 

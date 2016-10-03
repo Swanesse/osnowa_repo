@@ -3,6 +3,8 @@
 {% block content %}
     <div class ="main-content">
 	<h1>Logowanie</h1>
+        <h2>Logowanie jest wymagane, jeżeli chcesz dodawać punkty.</h2>
+                                                {#blok ten chroni przed atakiem CSRF#}
 	<form method="POST" action="/login/user/">{% csrf_token %}
 		<div class="content">
 			<table>

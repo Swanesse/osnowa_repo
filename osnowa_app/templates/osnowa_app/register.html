@@ -1,0 +1,26 @@
+{% extends "osnowa_app/base.html"%}
+
+{% block title %} - rejestracja{% endblock %}
+
+{% block content %}
+
+<h2>Rejestracja na stronie pensjonatu "Pod kwiatami"</h2>
+Rejetracja jest wymagana, jeżeli chcesz rezerwować noclegi.
+<p>
+<div style="margin-left:35%;margin-right:35%;">
+<fieldset>
+    <legend> Wszystkie pola oprócz numeru telefonu należy wypełnić </legend>
+        <form method="post" action=".">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Rejestracja">    <input type="reset" value="Wartości początkowe">
+        </form>
+</fieldset>
+</div>
+
+{% endblock %}
+{% block footer %}
+<p>
+<div style="text-align:center;"><a href="/">Strona główna</a></div>
+</p>
+
+{% endblock %}

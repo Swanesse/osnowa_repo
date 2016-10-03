@@ -7,6 +7,11 @@ from .forms import PointForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.contrib.auth import views
+from django.http import HttpResponse
+from django.template.loader import get_template
+from django.template import RequestContext
+from .forms import *
+
 
 
 # Metoda ta zwraca metodę render, która składa w całość (renderuje) szablon - łączy HTMLe w całość, bo wcześniej je rozbiłam żeby nie przepisywać
@@ -73,9 +78,46 @@ def user(request):
     else:
         return render(request, 'osnowa_app/user.html')
 
+def register(request):
+    """
+    rejestracja użytkownika
+    """
 
-def logout_then_login(request):
-    """
-    django.contrib.auth.views.logout_then_login logout view
-    """
-    return django.contrib.auth.views.logout_then_login(request, login_url='/')
+    if request.method == 'POST':
+        form = FormularzRejestracji(request.POST)
+        if form.is_valid():
+            user = User.objects.create_user(
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password1'],
+                email=form.cleaned_data['email']
+            )
+            user.last_name = form.cleaned_data['phone']
+            user.save()
+            if form.cleaned_data['log_on']:
+                user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+                login(request, user)
+                template = get_template("osnowa_app/point_list.html")
+                variables = RequestContext(request, {'user': user})
+                output = template.render(variables)
+                return HttpResponseRedirect("/")
+            else:
+                template = get_template("osnowa_app/register_success.html")
+                variables = RequestContext(request, {'username': form.cleaned_data['username']})
+                output = template.render(variables)
+                return HttpResponse(output)
+
+    else:
+        form = FormularzRejestracji()
+    template = get_template("osnowa_app/register.html")
+    form = FormularzRejestracji()
+    variables = RequestContext(request, {'form': form})
+    output = template.render(variables)
+    return HttpResponse(output)
+
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect("/")
+
+
+
