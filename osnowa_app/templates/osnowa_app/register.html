@@ -25,3 +25,41 @@ Rejetracja jest wymagana, jeżeli chcesz rezerwować noclegi.
 
 {% endblock %}
 
+
+
+
+
+
+
+When I wanted use my registration form in my site, I get ERROR 403: "CSRF verification failed. Request aborted." In source of this file I realised that  {% csrf_token %} is missing. This is part of view-source from my site:
+
+    <div style="margin-left:35%;margin-right:35%;">
+    <fieldset>
+    <legend> Wszystkie pola oprócz numeru telefonu należy wypełnić </legend>
+        <form method="post" action=".">
+            <p><label for="id_username">Login:</label> <input id="id_username" maxlength="30" name="username" type="text" required/></p>
+    <p><label for="id_email">Email:</label> <input id="id_email" name="email" type="email" required /></p>
+    <p><label for="id_password1">Hasło:</label> <input id="id_password1" name="password1" type="password" required /></p>
+    <p><label for="id_password2">Powtórz hasło:</label> <input id="id_password2" name="password2" type="password" required /></p>
+    <p><label for="id_phone">Telefon:</label> <input id="id_phone" maxlength="20" name="phone" type="text" /></p>
+    <p><label for="id_log_on">Logowanie po rejestracji:</label><input id="id_log_on" name="log_on" type="checkbox" /></p>
+            <input type="submit" value="Rejestracja"><input type="reset" value="Wartości początkowe">
+        </form>
+    </fieldset>
+    </div>
+
+I was surprised of that, because in my files on Pythonanythere this fragment of code is present.
+
+This is part of my file register.html on Pythonanythere:
+
+    <div style="margin-left:35%;margin-right:35%;">
+    <fieldset>
+    <legend> Wszystkie pola oprócz numeru telefonu należy wypełnić </legend>
+        <form method="post" action=".">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Rejestracja"><input type="reset" value="Wartości początkowe">
+        </form>
+    </fieldset>
+    </div>
+
+What am I doing wrong that my webpage don't see this piece of code? It is seamed on server but on webpage view-source It isn't.
