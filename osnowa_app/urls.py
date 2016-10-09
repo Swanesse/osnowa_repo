@@ -5,7 +5,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
 
 	url(r'^$', views.point_list, name='point_list'),
-#link ma prowadzić do strony ze szczegółami o punkcie
+#link ma prowadzić do strony ze szczegółami o punkcie .com/point/2/
 	url(r'^point/(?P<pk>[0-9]+)/$', views.point_detail, name='point_detail'),
 #link do formularza tworzenia nowego punktu
 	url(r'^point/new/$', views.point_new, name='point_new'),
@@ -23,9 +23,6 @@ urlpatterns = [
 	url(r'^one/$', RedirectView.as_view(url='/another/')),
 
 	url(r'^register/$',views.register, name='register'),
-
-
-
 
 ]
 

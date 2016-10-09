@@ -1,22 +1,21 @@
 {% extends 'osnowa_app/base.html' %}
 
 {% block content %}
-    <div class ="main-content">
-	<h1>Logowanie</h1>
-        <h2>Logowanie jest wymagane, jeżeli chcesz dodawać punkty.</h2>
                                                 {#blok ten chroni przed atakiem CSRF#}
 	<form method="POST" action="/login/user/">{% csrf_token %}
-		<div class="content">
-			<table>
-				<!--{% comment %} {%trans "Username"%} {% endcomment %}- usunęłam trans ze wszystkiego trans tell Django: “This text should be translated into the end user’s language, if a translation for this text is available in that language.”-->
-				<tr><th colspan="2" class="first"><strong>"Standard login"</strong></th></tr>
-				<tr class="rowA small"><td class="first" style="width:30%;"><label for="id_username">"Username":</label></td><td>{{ form.username }}</td></tr>
-				<tr class="rowB small"><td class="first"><label for="id_password">"Password":</label></td><td>{{ form.password }}</td></tr>
-                                                                    {#Przycisk zatwierdzający formularz?#}
-                <tr class="rowA small"><td class="first" colspan="2"><input type="submit" value="Login"></td></tr>
-			</table>
-			<input type="hidden" name="next" value="{{ next }}" />
-		</div>
+		<div class="login-main">
+            <div class="login-white-box">
+                <table>
+                    <!--{% comment %} {%trans "Username"%} {% endcomment %}- usunęłam trans ze wszystkiego trans tell Django: “This text should be translated into the end user’s language, if a translation for this text is available in that language.”-->
+                    <h1 class="login-naglowek">Logowanie</h1>
+                    <tr><td class="login-text" ><label for="id_username">Nazwa użytkownika:</label></td><td>{{ form.username }}</td></tr>
+                    <tr><td class="login-text"><label for="id_password">Hasło:</label></td><td>{{ form.password }}</td></tr>
+                                                                        {#Przycisk zatwierdzający formularz?#}
+                    <tr><td class="login-text" colspan="2"><input type="submit" value="Login"></td></tr>
+                </table>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+        </div>
 	</form>
-    </div>
+
 {% endblock %}

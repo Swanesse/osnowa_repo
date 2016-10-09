@@ -14,14 +14,17 @@ from .forms import *
 
 
 
-# Metoda ta zwraca metodę render, która składa w całość (renderuje) szablon - łączy HTMLe w całość, bo wcześniej je rozbiłam żeby nie przepisywać
+# Metoda ta zwraca metodę render, która składa w całość (renderuje) szablon - łączy HTMLe w całość, bo wcześniej je rozbiłam żeby nie przepisywać. Może też przesyłać do szablonu .html zmienne
 def point_list(request):
-    points = Point.objects.filter(find_date__lte=timezone.now()).order_by('find_date')
+    # Do zmiennej points przypisywana zostaje lista z obiektami klasy Point - wyciągana jest z bazy danych
+    points = Point.objects.all()
+
     return render(request, 'osnowa_app/point_list.html', {'points': points})
 
 
 def point_detail(request, pk):
     point = get_object_or_404(Point, pk=pk)
+                                                           # przesłanie zmiennej do szablonu 'nazwa zmiennej' :
     return render(request, 'osnowa_app/point_detail.html', {'point': point})
 
 
@@ -36,6 +39,7 @@ def point_new(request):
                 point = form.save(commit=False)
                 point.autor = request.user
                 point.created_date = timezone.now()
+                # zapisanie punktu w bazie danych
                 point.save()
                 return redirect('point_detail', pk=point.pk)
         else:

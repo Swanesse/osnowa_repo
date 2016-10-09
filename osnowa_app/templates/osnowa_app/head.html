@@ -1,39 +1,43 @@
 <header>
 			<nav>
 				<div class="logo">
-					<a href="{% url 'point_list' %}" title="Tu wpisać nazwę strony"> <img src="/static/images/logo.png" alt="Logo"  height="30"></a>
+					<a href="{% url 'point_list' %}" title="Osnowa"> <img src="/static/images/logo.png" alt="Logo" height="30"></a>
 				</div>
 
 				<div class="menu">
 					<ul>
 						<li>
 							<a href="{% url 'point_list' %}">Strona główna</a>
-			    			</li>
+                        </li>
 						<li>
 							<a href>Informacje</a>
-			    			</li>
+                        </li>
 						<li>
 							<a href>Kontakt</a>
-			    			</li>
-                			</ul>
+                        </li>
+                    </ul>
 				</div>
 
 				<div class="wyszukiwanie">
 
 					<div class="miejsce_lupka">
 						<img src="/static/images/lupa.png" alt="Szukaj punktu" height="16px" class="obrazek_lupki">
-						</div>
+                    </div>
 
 					<div class="szukaj">
-								<input type="search" class="typeahead q" placeholder="Szukaj punktu..." name="q">
+                        <input type="search" class="typeahead q" placeholder="Szukaj punktu..." name="q">
 					</div>
 				</div>
 
 				<!--Przycisk zaloguj się-->
-				<a href="{% url 'login_user' %}" title="Zaloguj się" class="add_point"><button class="btn">Zaloguj się</button> </a>
+                <div class=>
+				    <a href="{% url 'login_user' %}" title="Zaloguj się" class="add_point"><button class="btn">Zaloguj się</button> </a>
+                </div>
 
                 <!--Przycisk zarejestruj się-->
-				<a href="{% url 'register' %}" title="Zarejestruj się" class="add_point" id="margino"><button class="btn">Zarejestruj się</button> </a>
+                <div class=>
+				    <a href="{% url 'register' %}" title="Zarejestruj się" class="add_point" id="margino"><button class="btn">Zarejestruj się</button> </a>
+                </div>
 
 				<div class="user-nav" >
 					<!--Przycisk Dodaj punkt przez formularz-->
@@ -80,4 +84,4 @@
 						</script>
 				</div>
 			</nav>
-		</header>
+</header>
