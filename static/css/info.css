@@ -306,5 +306,10 @@
 div>h1 {
     font-size: 17px;
     margin: 0px 0px 10px 0;
+}
 
+label {
+	font-size: 17px;
+	margin: 0px 0px 10px 0;
+	font-weight: normal;
 }

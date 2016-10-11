@@ -1,25 +1,22 @@
 {% extends "osnowa_app/base.html"%}
 
-{% block title %} - rejestracja{% endblock %}
-
 {% block content %}
+    <div class ="detail-right">
+        <div class="detail-side-box">
 
-<div style="margin-left:35%;margin-right:35%;">
-<fieldset class="login-main">
-    <div class="login-white-box">
-        <legend> Wszystkie pola oprócz numeru telefonu należy wypełnić </legend>
-            <form method="post" action=".">{% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Rejestracja">    <input type="reset" value="Wartości początkowe">
-            </form>
+            <div class="point-text">
+                <fieldset >
+                    <legend> Wszystkie pola oprócz numeru telefonu należy wypełnić </legend>
+                    <form method="post" action=".">{% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" class="TellMe" value="Rejestracja">
+                        <input type="reset" value="Wartości początkowe">
+                    </form>
+                </fieldset>
+            </div>
+
+        </div>
     </div>
-</fieldset>
-</div>
 
 {% endblock %}
-{% block footer %}
-<p>
-<div style="text-align:center;"><a href="/">Strona główna</a></div>
-</p>
 
-{% endblock %}

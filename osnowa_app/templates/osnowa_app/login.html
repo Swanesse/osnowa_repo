@@ -1,21 +1,28 @@
 {% extends 'osnowa_app/base.html' %}
 
 {% block content %}
+
+    <div class ="detail-right">
+        <div class="detail-side-box">
+
+            <div class="point-text">
                                                 {#blok ten chroni przed atakiem CSRF#}
-	<form method="POST" action="/login/user/">{% csrf_token %}
-		<div class="login-main">
-            <div class="login-white-box">
-                <table>
+	            <form method="POST" action="/login/user/" >{% csrf_token %}
                     <!--{% comment %} {%trans "Username"%} {% endcomment %}- usunęłam trans ze wszystkiego trans tell Django: “This text should be translated into the end user’s language, if a translation for this text is available in that language.”-->
-                    <h1 class="login-naglowek">Logowanie</h1>
-                    <tr><td class="login-text" ><label for="id_username">Nazwa użytkownika:</label></td><td>{{ form.username }}</td></tr>
-                    <tr><td class="login-text"><label for="id_password">Hasło:</label></td><td>{{ form.password }}</td></tr>
+                    <h1>Logowanie</h1>
+                    <label for="id_username" class="">Nazwa użytkownika: </label> {{ form.username }}
+                    <label for="id_password" >Hasło: </label> {{ form.password }}
+
+                    <div class="point-line">
+                    </div>
                                                                         {#Przycisk zatwierdzający formularz?#}
-                    <tr><td class="login-text" colspan="2"><input type="submit" value="Login"></td></tr>
-                </table>
-                <input type="hidden" name="next" value="{{ next }}" />
+                    <input type="submit" value="Zaloguj" class="TellMe">
+
+                    <input type="hidden" name="next" value="{{ next }}" />
+	            </form>
             </div>
+
         </div>
-	</form>
+    </div>
 
 {% endblock %}

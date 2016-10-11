@@ -3,14 +3,21 @@
 {#Tworzenie nowego punktu#}
 
 {% block content %}
-    <div class ="login-main">
-        <div class="login-white-box">
-            <form method="POST" class="point-form">{% csrf_token %}
-            <!--wyświetlenie formularza-->
-                {{ form.as_p }}
-            <!--przycisk "zapisz"-->
-                <button type="submit" class="save btn btn-default">Zapisz</button>
-            </form>
+     <div class ="detail-right">
+        <div class="detail-side-box">
+
+            <div class="point-text">
+                <form method="POST" class="point-form">{% csrf_token %}
+                <!--wyświetlenie formularza-->
+                    {{ form.as_p }}
+                    <div class="point-line">
+                    </div>
+                <!--przycisk "zapisz"-->
+                    <button type="submit" class="TellMe">Zapisz</button>
+
+                </form>
+             </div>
+
         </div>
     </div>
 {% endblock %}
