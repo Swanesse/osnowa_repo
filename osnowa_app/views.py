@@ -50,8 +50,10 @@ def point_new(request):
 def point_edit(request, pk):
     point = get_object_or_404(Point, pk=pk)
     if request.method == "POST":
-        form = PointForm(request.POST, instance=point)
+        # to jest wywołanie konstruktora klasy PointForm
+        form = PointForm(request.POST, request.FILES, instance=point)
         if form.is_valid():
+            # save zwraca egzemplarz modelu związanego z klasą PointForm
             point = form.save(commit=False)
             point.author = request.user
             point.created_date = timezone.now()

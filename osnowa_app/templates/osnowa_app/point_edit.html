@@ -7,7 +7,7 @@
         <div class="detail-side-box">
 
             <div class="point-text">
-                <form method="POST" class="point-form">{% csrf_token %}
+                <form method="POST" class="point-form" enctype="multipart/form-data">{% csrf_token %}
                 <!--wyświetlenie formularza-->
                     {{ form.as_p }}
                     <div class="point-line">

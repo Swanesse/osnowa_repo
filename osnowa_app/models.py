@@ -20,7 +20,7 @@ class Point(models.Model):
     wsp_WGS84 = models.CharField(max_length=200, default='')
     stabilizacja = models.CharField(max_length=200, default='')
     typ_znaku = models.CharField(max_length=200, default='')
-    # zdjecie = models.ImageField(upload_to='static/images/', default="/static/images/znak.jpg")
+    zdjecie = models.ImageField(upload_to='static/images/', default="static/images/znak.jpg")
     created_date = models.DateTimeField(default=timezone.now)
     find_date = models.DateTimeField(blank=True, null=True)
 
@@ -30,6 +30,7 @@ class Point(models.Model):
 
     def __str__(self):
         return self.nazwa
+
 
 
 class LatLng(models.Model):
