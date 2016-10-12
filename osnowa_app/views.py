@@ -33,7 +33,7 @@ def point_new(request):
         return views.login(request, template_name='osnowa_app/login.html')
     else:
         if request.method == "POST":
-            form = PointForm(request.POST)
+            form = PointForm(request.POST, request.FILES)
             # czy formularz jest wypełniony poprawnie
             if form.is_valid():
                 point = form.save(commit=False)
