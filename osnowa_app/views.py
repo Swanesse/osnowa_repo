@@ -22,6 +22,17 @@ def point_list(request):
     return render(request, 'osnowa_app/point_list.html', {'points': points})
 
 
+def search(request):
+    # Do zmiennej points przypisywana zostaje lista z obiektami klasy Point - wyciągana jest z bazy danych
+    points = Point.objects.all()
+    # porównać, który punkt z bazy danych ma taką nazwę jaka została wpisana i zwrócić pk tego obiektu
+    primary_key = -1
+    for point in points:
+        if request.GET["q"] == point.numer_katalogowy:
+            primary_key=point.pk
+
+    return HttpResponseRedirect("/point/" + str(primary_key) + "/")
+
 def point_detail(request, pk):
     point = get_object_or_404(Point, pk=pk)
                                                            # przesłanie zmiennej do szablonu 'nazwa zmiennej' :

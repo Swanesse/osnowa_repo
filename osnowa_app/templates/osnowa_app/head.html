@@ -24,8 +24,10 @@
 						<img src="/static/images/lupa.png" alt="Szukaj punktu" height="16px" class="obrazek_lupki">
                     </div>
 
-					<div class="szukaj">
-                        <input type="search" class="typeahead q" placeholder="Szukaj punktu..." name="q">
+					<div class="szukaj" >
+                        <form action="/search/">{% csrf_token %}
+                            <input type="search" class="typeahead q" placeholder="Numer katalogowy punktu..." name="q">
+                        </form>
 					</div>
 				</div>
 

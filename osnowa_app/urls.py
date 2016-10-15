@@ -24,5 +24,7 @@ urlpatterns = [
 
 	url(r'^register/$',views.register, name='register'),
 
+	url(r'^search/$',views.search, name='search'),
+
 ]
 
