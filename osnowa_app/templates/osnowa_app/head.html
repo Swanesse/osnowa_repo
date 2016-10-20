@@ -1,69 +1,140 @@
 <header>
 			<nav>
-				<div class="logo">
-					<a href="{% url 'point_list' %}" title="Osnowa"> <img src="/static/images/logo.png" alt="Logo" height="30"></a>
+				<div class="logo_div">
+					<a class="logo_napis" href="{% url 'point_list' %}" title="Osnowa"> <img src="/static/images/logo3.png" alt="Logo" class="logo_picture">Osnowa</a>
+
 				</div>
 
-				<div class="menu">
-					<ul>
-						<li>
-							<a href="{% url 'point_list' %}">Strona główna</a>
-                        </li>
-						<li>
-							<a href>Informacje</a>
-                        </li>
-						<li>
-							<a href>Kontakt</a>
-                        </li>
-                    </ul>
-				</div>
 
-				<div class="wyszukiwanie">
+                <div class="schować">
 
-					<div class="miejsce_lupka">
-						<img src="/static/images/lupa.png" alt="Szukaj punktu" height="16px" class="obrazek_lupki">
+                    <div class="menu">
+                        <ul>
+                            <li>
+                                <a class="menu_link" href="{% url 'informacje' %}">Informacje</a>
+                            </li>
+                            <li>
+                                <a class="menu_link" href="{% url 'kontakt' %}">Kontakt</a>
+                            </li>
+                        </ul>
                     </div>
 
-					<div class="szukaj" >
-                        <form action="/search/">{% csrf_token %}
-                            <input type="search" class="typeahead q" placeholder="Numer katalogowy punktu..." name="q">
-                        </form>
-					</div>
-				</div>
+                    <div class="wyszukiwanie">
 
-				<!--Przycisk zaloguj się-->
-                <div class=>
-				    <a href="{% url 'login_user' %}" title="Zaloguj się" class="add_point"><button class="btn">Zaloguj się</button> </a>
+                        <div class="miejsce_lupka">
+                            <img src="/static/images/lupa.png" alt="Szukaj punktu" height="16px" class="obrazek_lupki">
+                        </div>
+
+                        <div class="szukaj" >
+                            <form action="/search/">{% csrf_token %}
+                                <input type="search" class="typeahead q" placeholder="Numer katalogowy..." name="q">
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--Przycisk Dodaj punkt-->
+                    <div class="add_point_div">
+                        <a class="add_point" href="{% url 'point_new' %}">Dodaj punkt</a>
+                    </div>
+
+                    <div class="user-nav" >
+
+                        {% if not user.is_authenticated %}
+
+                            <!--Przycisk zaloguj się-->
+                            <div class="add_point_div">
+                                <a class="add_point" href="{% url 'login_user' %}">Zaloguj się</a>
+                            </div>
+
+                            <!--Przycisk zarejestruj się-->
+                            <div class="add_point_div">
+                                <a class="add_point" href="{% url 'register' %}">Zarejestruj się</a>
+                            </div>
+
+                        {% endif %}
+
+                        {% if user.is_authenticated %}
+
+                            <div class="profile">
+                                <div class="avatar">
+                                    <a href="{% url 'user' %}" title="Profil" class="avatar-mini1">
+                                        <div class="avatar-mini2">
+                                            <img src="/static/images/photo.png" alt="Profil" height="30">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                                <div class="dropdown">
+                                    <button onclick="myFunction()" class="dropbtn"><img src="/static/images/dropdown.png" alt="Dropdown" class="img-dropdown"></button>
+                                    <div class="myDropdown dropdown-content">
+                                        <a href="{% url 'user' %}">Mój profil</a>
+                                        <a href="{% url 'logout_user' %}">Wyloguj się</a>
+                                    </div>
+                                </div>
+
+                        {% endif %}
+                    </div>
+
                 </div>
 
-                <!--Przycisk zarejestruj się-->
-                <div class=>
-				    <a href="{% url 'register' %}" title="Zarejestruj się" class="add_point" id="margino"><button class="btn">Zarejestruj się</button> </a>
+
+
+
+
+
+
+                <div class="zmiana_rozmiaru">
+                    <div class="schowany">
+                        <div class="dropdown2">
+                            <button onclick="myFunction2()" class="dropbtn2"><img src="/static/images/menu.png" alt="Dropdown" class="img-dropdown"></button>
+                            <div class="myDropdown2 dropdown-content2">
+                                <a href="{% url 'point_new' %}">Dodaj punkt</a>
+
+                                <div class="wyszukiwanie">
+
+                                    <div class="miejsce_lupka">
+                                        <img src="/static/images/lupa.png" alt="Szukaj punktu" height="16px" class="obrazek_lupki">
+                                    </div>
+
+                                    <div class="szukaj" >
+                                        <form action="/search/">{% csrf_token %}
+                                            <input type="search" class="typeahead q" placeholder="Numer..." name="q">
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <a class="a_line">
+                                   <div class="line">
+                                    </div>
+                                </a>
+
+                                <a href="{% url 'informacje' %}">Informacje</a>
+                                <a href="{% url 'kontakt' %}">Kontakt</a>
+
+                                <a class="a_line">
+                                   <div class="line">
+                                    </div>
+                                </a>
+
+
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'user' %}">Mój profil</a>
+                                    <a href="{% url 'logout_user' %}">Wyloguj się</a>
+                                {% endif %}
+
+
+                                {% if not user.is_authenticated %}
+                                    <a class="add_point" href="{% url 'login_user' %}">Zaloguj się</a>
+                                    <a class="add_point" href="{% url 'register' %}">Zarejestruj się</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-
-				<div class="user-nav" >
-					<!--Przycisk Dodaj punkt przez formularz-->
-{#                    {% if user.is_authenticated %}#}
-					    <a href="{% url 'point_new' %}" title="Dodaj punkt" class="add_point" ><img src="/static/images/notification.png" alt="Dodaj punkt" height="20"> </a>
-{#                    {% endif %}#}
-
-                    <div class="profile">
-						<div class="avatar">
-							<a href="{% url 'user' %}" title="Profil" class="avatar-mini1">
-								<div class="avatar-mini2">
-									<img src="/static/images/photo.jpg" alt="Profil" height="30">
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="dropdown">
-						<button onclick="myFunction()" class="dropbtn"><img src="/static/images/dropdown.png" alt="Dropdown" class="img-dropdown"></button>
-						<div class="myDropdown dropdown-content">
-							<a href="{% url 'user' %}">Mój profil</a>
-							<a href="#about">Ustawienia</a>
-						  	<a href="{% url 'logout_user' %}">Wyloguj się</a>
-						</div>
-					</div>
 
 						<script>
 							/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
@@ -84,6 +155,25 @@
 							  	}
 							}
 						</script>
-				</div>
+
+                        <script>
+							/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+							function myFunction2() {
+							    document.getElementsByClassName("myDropdown2")[0].classList.toggle("show2");}
+
+							// Close the dropdown if the user clicks outside of it
+							window.onclick = function(event)
+							{ if (!event.currentTarget.matches('.dropbtn2'))
+							  	{ var dropdowns = document.getElementsByClassName("dropdown-content2");
+								  var i;
+							    	  for (i = 0; i < dropdowns.length; i++)
+									{ var openDropdown = dropdowns[i];
+							      		  if (openDropdown.classList.contains('show2'))
+										{ openDropdown.classList.remove('show2');
+										}
+							    		}
+							  	}
+							}
+						</script>
 			</nav>
 </header>

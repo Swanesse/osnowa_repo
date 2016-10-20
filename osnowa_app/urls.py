@@ -26,5 +26,9 @@ urlpatterns = [
 
 	url(r'^search/$',views.search, name='search'),
 
+	url(r'^informacje/$',views.informacje, name='informacje'),
+
+	url(r'^kontakt/$',views.kontakt, name='kontakt'),
+
 ]
 

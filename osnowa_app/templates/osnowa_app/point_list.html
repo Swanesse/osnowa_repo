@@ -134,10 +134,19 @@
                         .bindPopup("<b>Numer: </b>{{ point.numer_katalogowy }}<br />" + "<b>Wsp.: </b>{{ point.wsp_2000 }}<br />" + "<a href = \"{% url 'point_detail' pk=point.pk %}\">Zobacz opis punktu</a>").addTo(mymap);
             {% endfor %}
 
-		</script>
 
-
-		<script>
+{#        {% for point in points %}#}
+{#                L.marker([{{ point.wsp_WGS84 }}], {icon: greenIcon})#}
+{#                        .bindPopup("<b>Numer: </b>{{ point.numer_katalogowy }}<br />" + "<b>Wsp.: </b>{{ point.wsp_2000 }}<br />" + "<a onclick = "funkcja()" href = >Zobacz opis punktu</a>").addTo(mymap);#}
+{#            {% endfor %}#}
+{##}
+{##}
+{#		</script>#}
+{#            function funkcja() {                             // Declare function#}
+{##}
+{#            }#}
+{##}
+{#		<script>#}
 			
 		/* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 		/*Wstawianie obrazka.png jako znacznik*/	

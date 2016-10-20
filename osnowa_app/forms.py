@@ -39,6 +39,7 @@ class PointForm(forms.ModelForm):
 
 
 
+
     #Formularz rejestracji
 class FormularzRejestracji(forms.Form):
     username = forms.CharField(label="Login:", max_length=30)

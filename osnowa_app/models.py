@@ -23,6 +23,8 @@ class Point(models.Model):
     zdjecie = models.ImageField(upload_to='static/images/', default="static/images/znak.jpg")
     created_date = models.DateTimeField(default=timezone.now)
     find_date = models.DateTimeField(blank=True, null=True)
+    odnaleziony = models.IntegerField(default=0)
+    uszkodzony = models.IntegerField(default=0)
 
     def publish(self):
         self.find_date = timezone.now()

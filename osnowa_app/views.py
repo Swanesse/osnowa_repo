@@ -21,6 +21,14 @@ def point_list(request):
 
     return render(request, 'osnowa_app/point_list.html', {'points': points})
 
+def informacje(request):
+
+    return render(request, 'osnowa_app/informacje.html')
+
+def kontakt(request):
+
+    return render(request, 'osnowa_app/kontakt.html')
+
 
 def search(request):
     # Do zmiennej points przypisywana zostaje lista z obiektami klasy Point - wyciągana jest z bazy danych
@@ -35,9 +43,21 @@ def search(request):
 
 def point_detail(request, pk):
     point = get_object_or_404(Point, pk=pk)
-                                                           # przesłanie zmiennej do szablonu 'nazwa zmiennej' :
+
+    # print ("Tutaj znajduje sie" + str(request.POST["uszkodzony"]) + "A tu jest koniec")
+
+    if request.method == "POST" and request.POST["uszkodzony"] == "1":
+
+        print (str(request.POST))
+
+        point.odnaleziony += 1
+        point.uszkodzony +=1
+        point.save()
+        return redirect('point_detail', pk=point.pk)
+                                                             # przesłanie zmiennej do szablonu 'nazwa zmiennej' :
     return render(request, 'osnowa_app/point_detail.html', {'point': point})
 
+# Zrobić tak żeby drugi przycisk też działał
 
 def point_new(request):
     if not request.user.is_authenticated():

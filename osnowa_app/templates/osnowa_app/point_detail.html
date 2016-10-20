@@ -21,18 +21,57 @@
                 <p>Stabilizacja: {{ point.stabilizacja }}</p>
                 <p>Typ znaku: {{ point.typ_znaku }}</p>
                 <p>Punkt znaleziono: {{ point.find_date }} </p>
-                <p>Zdjęcie punktu: <img src="/{{ point.zdjecie }}"> </p>
+                <p>Zdjęcie punktu: </p>
+                <div class="div_zdjecie_punktu">
+                    <img src="/{{ point.zdjecie }}" class="zdjecie_punktu">
+                </div>
+
+
+                <p>Punkt odnaleziono: {{ point.odnaleziony }} razy.</p>
+                <p>Punkt oznaczono jako uszkodzony: {{ point.uszkodzony }} razy.</p>
 
 
             </div>
-
-            <div class="point-line">
+                <div class="point-line">
             </div>
 
-            {#Przycisk edycji punktu#}
+            <!--przycisk "oznacz jako odnaleziony"-->
             {% if user.is_authenticated %}
-	            <a href="{% url 'point_edit' pk=point.pk %}" class="TellMe">Edytuj punkt</a>
+                <form method="POST">{% csrf_token %}
+
+                    <button type="submit" class="TellMe">Oznacz jako odnaleziony </button>
+
+                </form>
+
+            {% else %}
+                <a href="{% url 'login_user' %}" class="TellMe">Oznacz jako odnaleziony </a>
             {% endif %}
+
+
+            <!--przycisk "oznacz jako uszkodzony"-->
+            {% if user.is_authenticated %}
+                <form method="POST">{% csrf_token %}
+
+                    <button name="uszkodzony" type="submit" value = "1" class="TellMe">Oznacz jako uszkodzony </button>
+
+                </form>
+
+            {% else %}
+                <a href="{% url 'login_user' %}" class="TellMe">Oznacz jako uszkodzony </a>
+            {% endif %}
+
+            <!--przycisk "Edytuj punkt"-->
+            {% if user.is_authenticated %}
+                <form method="POST">{% csrf_token %}
+
+                    <a href="{% url 'point_edit' pk=point.pk %}" class="TellMe">Edytuj punkt</a>
+
+                </form>
+
+            {% else %}
+                <a href="{% url 'login_user' %}" class="TellMe">Edytuj punkt</a>
+            {% endif %}
+
         </div>
     </div>
 {% endblock %}

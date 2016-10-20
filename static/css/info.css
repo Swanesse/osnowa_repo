@@ -315,3 +315,17 @@ label {
 	margin: 0px 0px 10px 0;
 	font-weight: normal;
 }
+
+.div_zdjecie_punktu {
+	width: 200px;
+	height: 200px;
+	margin:auto;
+}
+
+.zdjecie_punktu {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	border-radius: 5px;
+
+}
