@@ -329,3 +329,14 @@ label {
 	border-radius: 5px;
 
 }
+
+@media only screen and (max-width: 450px) {
+	.detail-right {
+		width:96%;
+		left:2%;
+		right:2%;
+	}
+	.detail-side-box {
+		width:100%;
+	}
+}
