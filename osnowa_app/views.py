@@ -46,14 +46,26 @@ def point_detail(request, pk):
 
     # print ("Tutaj znajduje sie" + str(request.POST["uszkodzony"]) + "A tu jest koniec")
 
+
+    if request.method == "POST" and request.POST["odnaleziony"] == "1":
+
+        print (str(request.POST))
+        point.odnaleziony += 1
+        point.save()
+        return redirect('point_detail', pk=point.pk)
+
+
+
     if request.method == "POST" and request.POST["uszkodzony"] == "1":
 
         print (str(request.POST))
-
-        point.odnaleziony += 1
         point.uszkodzony +=1
         point.save()
         return redirect('point_detail', pk=point.pk)
+
+
+
+
                                                              # przesłanie zmiennej do szablonu 'nazwa zmiennej' :
     return render(request, 'osnowa_app/point_detail.html', {'point': point})
 

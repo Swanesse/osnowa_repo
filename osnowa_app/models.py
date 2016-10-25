@@ -18,6 +18,8 @@ class Point(models.Model):
     wsp_2000 = models.CharField(max_length=200, default='')
     wsp_lokalne = models.CharField(max_length=200, default='')
     wsp_WGS84 = models.CharField(max_length=200, default='')
+    h_amsterdam = models.CharField(max_length=200, default='')
+    h_kronsztadt_86 = models.CharField(max_length=200, default='')
     stabilizacja = models.CharField(max_length=200, default='')
     typ_znaku = models.CharField(max_length=200, default='')
     zdjecie = models.ImageField(upload_to='static/images/', default="static/images/znak.jpg")
