@@ -46,17 +46,16 @@ def point_detail(request, pk):
 
     # print ("Tutaj znajduje sie" + str(request.POST["uszkodzony"]) + "A tu jest koniec")
 
+    print(str(request.POST))
 
-    if request.method == "POST" and request.POST["odnaleziony"] == "1":
+    if request.method == "POST" and 'odnaleziony' in request.POST:
 
         print (str(request.POST))
         point.odnaleziony += 1
         point.save()
         return redirect('point_detail', pk=point.pk)
 
-
-
-    if request.method == "POST" and request.POST["uszkodzony"] == "1":
+    if request.method == "POST" and 'uszkodzony' in request.POST:
 
         print (str(request.POST))
         point.uszkodzony +=1

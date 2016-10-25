@@ -53,7 +53,7 @@
                 {% if user.is_authenticated %}
                     <form method="POST">{% csrf_token %}
 
-                        <button name="odnaleziony" type="submit" value = "1" class="TellMe">Oznacz jako odnaleziony </button>
+                        <button name="odnaleziony" type="submit" class="TellMe">Oznacz jako odnaleziony </button>
 
                     </form>
 
@@ -66,7 +66,7 @@
                 {% if user.is_authenticated %}
                     <form method="POST">{% csrf_token %}
 
-                        <button name="uszkodzony" type="submit" value = "1" class="TellMe">Oznacz jako uszkodzony </button>
+                        <button name="uszkodzony" type="submit" class="TellMe">Oznacz jako uszkodzony </button>
 
                     </form>
 
