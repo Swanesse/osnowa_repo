@@ -6,6 +6,15 @@
     <div class ="detail-right">
         <div class="detail-side-box">
 
+             <div class="naglowek-boczny">
+                    <h1 class="naglowek-boczny-tekst">
+                        Informacje o punkcie
+                    </h1>
+             </div>
+
+             <div class="point-line-all">
+            </div>
+
             <div class="point-text">
                 <h1><b>Szczegółowe informacje o punkcie:</b></h1>
                 <p>Nazwa punktu: {{ point.nazwa }}</p>
@@ -31,46 +40,51 @@
                 <p>Punkt oznaczono jako uszkodzony: {{ point.uszkodzony }} razy.</p>
 
 
-            </div>
                 <div class="point-line">
+                </div>
+
+
+
+
+
+                <!--przycisk "oznacz jako odnaleziony"-->
+                {% if user.is_authenticated %}
+                    <form method="POST">{% csrf_token %}
+
+                        <button type="submit" class="TellMe">Oznacz jako odnaleziony </button>
+
+                    </form>
+
+                {% else %}
+                    <a href="{% url 'login_user' %}" class="TellMe">Oznacz jako odnaleziony </a>
+                {% endif %}
+
+
+                <!--przycisk "oznacz jako uszkodzony"-->
+                {% if user.is_authenticated %}
+                    <form method="POST">{% csrf_token %}
+
+                        <button name="uszkodzony" type="submit" value = "1" class="TellMe">Oznacz jako uszkodzony </button>
+
+                    </form>
+
+                {% else %}
+                    <a href="{% url 'login_user' %}" class="TellMe">Oznacz jako uszkodzony </a>
+                {% endif %}
+
+                <!--przycisk "Edytuj punkt"-->
+                {% if user.is_authenticated %}
+                    <form method="POST">{% csrf_token %}
+
+                        <a href="{% url 'point_edit' pk=point.pk %}" class="TellMe">Edytuj punkt</a>
+
+                    </form>
+
+                {% else %}
+                    <a href="{% url 'login_user' %}" class="TellMe">Edytuj punkt</a>
+                {% endif %}
+
             </div>
-
-            <!--przycisk "oznacz jako odnaleziony"-->
-            {% if user.is_authenticated %}
-                <form method="POST">{% csrf_token %}
-
-                    <button type="submit" class="TellMe">Oznacz jako odnaleziony </button>
-
-                </form>
-
-            {% else %}
-                <a href="{% url 'login_user' %}" class="TellMe">Oznacz jako odnaleziony </a>
-            {% endif %}
-
-
-            <!--przycisk "oznacz jako uszkodzony"-->
-            {% if user.is_authenticated %}
-                <form method="POST">{% csrf_token %}
-
-                    <button name="uszkodzony" type="submit" value = "1" class="TellMe">Oznacz jako uszkodzony </button>
-
-                </form>
-
-            {% else %}
-                <a href="{% url 'login_user' %}" class="TellMe">Oznacz jako uszkodzony </a>
-            {% endif %}
-
-            <!--przycisk "Edytuj punkt"-->
-            {% if user.is_authenticated %}
-                <form method="POST">{% csrf_token %}
-
-                    <a href="{% url 'point_edit' pk=point.pk %}" class="TellMe">Edytuj punkt</a>
-
-                </form>
-
-            {% else %}
-                <a href="{% url 'login_user' %}" class="TellMe">Edytuj punkt</a>
-            {% endif %}
 
         </div>
     </div>
