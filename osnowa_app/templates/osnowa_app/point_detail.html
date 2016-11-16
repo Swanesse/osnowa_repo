@@ -1,9 +1,6 @@
-{% extends 'osnowa_app/base.html' %}
-
 {#Opis punktu - jego charakterystyka i własności#}
 
-{% block content %}
-    <div class ="detail-right">
+    <div class ="detail-right" id="details">
         <div class="detail-side-box">
 
              <div class="naglowek-boczny">
@@ -16,7 +13,6 @@
             </div>
 
             <div class="point-text">
-                <h1><b>Szczegółowe informacje o punkcie:</b></h1>
                 <p>Nazwa punktu: {{ point.nazwa }}</p>
                 <p>Klasa punktu: {{ point.klasa|linebreaksbr }}</p>
                 <p>Numer katalogowy: {{ point.numer_katalogowy }}</p>
@@ -90,4 +86,3 @@
 
         </div>
     </div>
-{% endblock %}

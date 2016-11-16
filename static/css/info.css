@@ -275,6 +275,23 @@
 	right: 10px;
 	top: 60px;
 	bottom: 10px;
+	display: none;
+}
+
+.detail-oko {
+	width: 400px;
+	position: absolute;
+	right: 10px;
+	top: 60px;
+	bottom: 10px;
+	display: block;
+}
+
+
+.detail-center {
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 60px;
 }
 
 .detail-side-box {

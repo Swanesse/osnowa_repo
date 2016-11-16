@@ -331,6 +331,10 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 	display: block;
 }
 
+#contact {
+
+}
+
 
 @media only screen and (max-width: 850px) {
     .zmiana_rozmiaru {
