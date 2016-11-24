@@ -155,12 +155,11 @@ def register(request):
                 output = template.render(variables)
                 return HttpResponse(output)
 
-    else:
-        template = get_template("osnowa_app/register.html")
-        form = FormularzRejestracji()
-        variables = {'form': form}
-        output = template.render(variables, request)
-        return HttpResponse(output)
+    template = get_template("osnowa_app/register.html")
+    form = FormularzRejestracji()
+    variables = {'form': form}
+    output = template.render(variables, request)
+    return HttpResponse(output)
 
 
 def logout_user(request):
