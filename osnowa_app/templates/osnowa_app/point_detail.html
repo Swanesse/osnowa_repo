@@ -1,6 +1,6 @@
 {#Opis punktu - jego charakterystyka i własności#}
 
-    <div class ="detail-right" id="point-details-{{ point.pk }}">
+    <div class ="detail-right catalogue-{{ point.numer_katalogowy }}" id="point-details-{{ point.pk }}">
         <div class="detail-side-box">
 
              <div class="naglowek-boczny">
@@ -22,7 +22,7 @@
                 <p>Miejscowość: {{ point.miejscowosc }}</p>
                 <p>Wsp. (2000): {{ point.wsp_2000 }}</p>
                 <p>Wsp. (lokalne): {{ point.wsp_lokalne }}</p>
-                <p>Wsp. (WGS 84): {{ point.wsp_WGS84 }}</p>
+                <p>Wsp. (WGS 84): <span class="coordinates">{{ point.wsp_WGS84 }}</span></p>
                 <p>H (AMSTERDAM): {{ point.h_amsterdam }}</p>
                 <p>H (KRONSZTADT 86): {{ point.h_kronsztadt_86 }}</p>
                 <p>Stabilizacja: {{ point.stabilizacja }}</p>

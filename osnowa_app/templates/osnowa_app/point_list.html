@@ -69,6 +69,15 @@
 
        {% endif %}
 
+        document.getElementById("form-search").addEventListener("submit", function(event) {
+            event.preventDefault();
+            ukrywanie();
+            var searched_number = document.getElementsByClassName("q")[0].value;
+            document.getElementsByClassName("catalogue-" + searched_number)[0].style.display = "block";
+            var coordinates = document.querySelectorAll(".catalogue-" + searched_number + ' .coordinates')[0].innerHTML
+            coordinates = coordinates.split(', ');
+            mymap.setView([coordinates[0], coordinates[1]], 16);
+        });
 
     </script>
 
