@@ -19,7 +19,6 @@ def point_list(request):
     # Do zmiennej points przypisywana zostaje lista z obiektami klasy Point - wyciągana jest z bazy danych
     points = Point.objects.all()
 
-
     return render(request, 'osnowa_app/point_list.html', {'points': points})
 
 def informacje(request):

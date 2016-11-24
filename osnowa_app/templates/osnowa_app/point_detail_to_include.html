@@ -1,9 +1,6 @@
-{% extends 'osnowa_app/base.html' %}
-
 {#Opis punktu - jego charakterystyka i własności#}
 
-{% block content %}
-    <div class ="detail-center">
+    <div class ="detail-right catalogue-{{ point.numer_katalogowy }}" id="point-details-{{ point.pk }}">
         <div class="detail-side-box">
 
              <div class="naglowek-boczny">
@@ -16,7 +13,6 @@
             </div>
 
             <div class="point-text">
-                <h1><b>Szczegółowe informacje o punkcie:</b></h1>
                 <p>Nazwa punktu: {{ point.nazwa }}</p>
                 <p>Klasa punktu: {{ point.klasa|linebreaksbr }}</p>
                 <p>Numer katalogowy: {{ point.numer_katalogowy }}</p>
@@ -26,7 +22,7 @@
                 <p>Miejscowość: {{ point.miejscowosc }}</p>
                 <p>Wsp. (2000): {{ point.wsp_2000 }}</p>
                 <p>Wsp. (lokalne): {{ point.wsp_lokalne }}</p>
-                <p>Wsp. (WGS 84): {{ point.wsp_WGS84 }}</p>
+                <p>Wsp. (WGS 84): <span class="coordinates">{{ point.wsp_WGS84 }}</span></p>
                 <p>H (AMSTERDAM): {{ point.h_amsterdam }}</p>
                 <p>H (KRONSZTADT 86): {{ point.h_kronsztadt_86 }}</p>
                 <p>Stabilizacja: {{ point.stabilizacja }}</p>
@@ -51,7 +47,7 @@
 
                 <!--przycisk "oznacz jako odnaleziony"-->
                 {% if user.is_authenticated %}
-                    <form method="POST">{% csrf_token %}
+                    <form action="point/{{ point.pk }}/" method="POST">{% csrf_token %}
 
                         <button name="odnaleziony" type="submit" class="TellMe">Oznacz jako odnaleziony </button>
 
@@ -64,7 +60,7 @@
 
                 <!--przycisk "oznacz jako uszkodzony"-->
                 {% if user.is_authenticated %}
-                    <form method="POST">{% csrf_token %}
+                    <form action="point/{{ point.pk }}/" method="POST">{% csrf_token %}
 
                         <button name="uszkodzony" type="submit" class="TellMe">Oznacz jako uszkodzony </button>
 
@@ -90,4 +86,3 @@
 
         </div>
     </div>
-{% endblock %}
